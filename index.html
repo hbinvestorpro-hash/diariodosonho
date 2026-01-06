@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diário da Mente</title>
+  <style>
+    :root { --accent: #2a9d8f; --accent-dark: #264653; --ink: #2b2b2b; --bg: #f7fafb; --panel: rgba(255,255,255,0.98); }
+    body { margin: 0; color: var(--ink); background: var(--bg); font-family: Georgia, 'Times New Roman', serif; }
+    .frame { min-height: 100vh; padding: 24px; box-sizing: border-box; }
+    header { max-width: 1100px; margin: 0 auto 20px; text-align: center; }
+    .title { font-size: 44px; letter-spacing: 0.01em; margin: 8px 0 2px; color: #264653; }
+    .subtitle { font-size: 16px; margin-top: 6px; color: #5c7079; }
+
+    .hero { max-width: 1100px; margin: 0 auto; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.18); }
+    .hero__img { position: relative; background-image: url('https://images.unsplash.com/photo-1526140160961-6a9a79484fa5?auto=format&fit=crop&w=2000&q=85'); background-size: cover; background-position: center; min-height: 420px; }
+    .hero__overlay { background: linear-gradient(180deg, rgba(38,70,83,0.40), rgba(244,162,97,0.35)); padding: 30px; }
+    .hero__content { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; align-items: center; }
+    .panel { background: var(--panel); border-radius: 14px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    .panel h2, .panel h3 { margin-top: 0; color: var(--accent); }
+    .cta { display: inline-block; margin-top: 12px; padding: 12px 18px; border-radius: 10px; background: var(--accent); color: #fff; text-decoration: none; font-weight: 600; box-shadow: 0 6px 16px rgba(0,0,0,0.12); }
+    .cta.alt { background: #f4a261; }
+    .grid { max-width: 1100px; margin: 20px auto; display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .card { background: var(--panel); padding: 18px; border-radius: 14px; box-shadow: 0 6px 16px rgba(0,0,0,0.08); }
+    .card h3 { margin: 0 0 8px; color: var(--accent); }
+    .footer { text-align: center; color: #5c7079; font-size: 13px; margin: 24px 0; }
+    @media (max-width: 860px) { .hero__content { grid-template-columns: 1fr; } .hero__img { min-height: 360px; } }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <header>
+      <h1 class="title">Diário da Mente</h1>
+      <p class="subtitle">Reencontre com seus sonhos</p>
+    </header>
+
+    <section class="hero hero__img">
+      <div class="hero__overlay">
+        <div class="hero__content">
+          <div class="panel">
+            <h2>Bem-vindo ao seu espaço de escrita</h2>
+            <p>Comece um <strong>novo diário</strong> ou <strong>continue</strong> de onde parou. Ao concluir o último dia, a semana é arquivada automaticamente e uma nova semana inicia.</p>
+            <p>
+              <a class="cta" href="#" onclick="novoDiario()">Começar um novo Diário</a>
+              &nbsp;&nbsp;
+              <a class="cta alt" href="diario.html">Continuar Diário atual</a>
+              &nbsp;&nbsp;
+              <a class="cta" href="historico.html">Ver Histórico Semanal</a>
+            </p>
+          </div>
+          <div class="panel">
+            <h3>Sobre</h3>
+            <p>Redefina seus sonhos com essa experiência guiada em 7 dias, PDF e histórico. Todos os dados ficam apenas no seu dispositivo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card"><h3>Visual</h3><p>Temas: <strong>Amanteigado</strong> (muito claro) ou <strong>Cimentado</strong> (fresco suave), com contraste ajustável.</p></div>
+      <div class="card"><h3>Privacidade</h3><p>Sem servidores. Sem cadastro. Tudo fica no seu navegador.</p></div>
+      <div class="card"><h3>PDF</h3><p>Saída em <strong>texto contínuo</strong> (sem caixas), com nome do diário e carimbo de data.</p></div>
+    </section>
+
+    <p class="footer">© Diário da Mente — Edição leve e harmoniosa</p>
+  </div>
+  <script>
+    function novoDiario(){ try{ for(let i=0;i<7;i++){ localStorage.removeItem('diario_mente_resposta_'+i); } }catch(e){} window.location.href='diario.html'; }
+  </script>
+</body>
+</html>
